@@ -28,5 +28,7 @@ to run the application locally follow this steps :
 `npm install -g http-server`
     -start the application 
     `http-server`
+here is a demo for the application 
+https://www.youtube.com/watch?v=rM6F2uqI-ls
 
 
