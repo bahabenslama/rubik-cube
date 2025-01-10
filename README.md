@@ -21,4 +21,5 @@ Features
  * Awareness of puzzle completion, possibly with some celebratory 3D effects
  * Touch support
 
-![image](https://github.com/user-attachments/assets/74d51309-a278-4463-8d1c-9899e9c986e0)
+![image](https://github.com/user-attachments/assets/40e56824-0c76-41ac-96d3-327f2b43a834)
+
