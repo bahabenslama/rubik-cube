@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Rubik Cube</title>
+    <link
+      href="http://fonts.googleapis.com/css?family=Alegreya+Sans+SC"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link href="style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <!-- Controls for the Rubik Cube and Timer -->
+    <ul id="controls">
+      <li><a href="#shuffle" id="button-shuffle">Shuffle</a></li>
+      <li><a href="#solve" id="button-solve">Solve</a></li>
+      <li><a href="#reset" id="button-reset">Reset</a></li>
+      <li><a href="#start-timer" id="button-start-timer">Start Timer</a></li>
+      <li><a href="#stop-timer" id="button-stop-timer">Stop Timer</a></li>
+      <li><a href="#reset-timer" id="button-reset-timer">Reset Timer</a></li>
+    </ul>
+
+    <!-- Timer Display -->
+    <div
+      id="timer"
+      style="
+        font-size: 60px;
+        margin-top: 10px;
+        position: absolute;
+        right: 30px;
+      "
+    >
+      0:00
+    </div>
+
+    <!-- Rubik Cube 3D Scene -->
+    <div id="scene"></div>
+
+    <!-- External JavaScript Libraries -->
+    <script src="lib/jquery-2.0.3.js"></script>
+    <script src="lib/three.js"></script>
+    <script src="lib/OrbitControls.js"></script>
+    <script src="lib/threex.domevent.js"></script>
+    <script src="lib/threex.domevent.object3d.js"></script>
+
+    <!-- Your custom Rubik's Cube script -->
+    <script src="rubik.js"></script>
+
+    <script>
+      $(function () {
+        function init(dimensions) {
+          console.log("Initializing Rubik cube"); // Debugging line
+          dimensions = +dimensions || 3;
+
+          var element = $("#scene").empty();
+          var rubik = new Rubik(element, dimensions);
+          console.log("Rubik cube initialized"); // Debugging line
+          $("#button-shuffle").on("click", function (e) {
+            e.preventDefault();
+            rubik.shuffle();
+          });
+          $("#button-solve").on("click", function (e) {
+            e.preventDefault();
+            rubik.solve();
+          });
+          $("#button-reset").on("click", function (e) {
+            e.preventDefault();
+            init();
+          });
+          var timer;
+          var startTime;
+          var elapsedTime = 0;
+
+          function updateTimer() {
+            var currentTime = new Date().getTime();
+            var deltaTime = currentTime - startTime + elapsedTime;
+            var seconds = Math.floor(deltaTime / 1000);
+            var minutes = Math.floor(seconds / 60);
+            seconds = seconds % 60;
+            $("#timer").text(
+              minutes + ":" + (seconds < 10 ? "0" : "") + seconds
+            );
+          }
+
+          // Start Timer
+          $("#button-start-timer").on("click", function (e) {
+            e.preventDefault();
+            startTime = new Date().getTime();
+            timer = setInterval(updateTimer, 1000);
+          });
+
+          // Stop Timer
+          $("#button-stop-timer").on("click", function (e) {
+            e.preventDefault();
+            clearInterval(timer);
+            elapsedTime += new Date().getTime() - startTime;
+          });
+          // Reset Timer
+          $("#button-reset-timer").on("click", function (e) {
+            e.preventDefault();
+            clearInterval(timer);
+            elapsedTime = 0;
+            $("#timer").text("0:00");
+          });
+        }
+
+        init();
+      });
+    </script>
+  </body>
+</html>
