@@ -1,4 +1,8 @@
 
+Issue in the Microsoft azure :
+    permission denied from admin when try to create a virtual machine or even try to create a resource group :
+![resource group failed](https://github.com/user-attachments/assets/cebe8d47-aed2-45a9-b7e1-0bb5f5703584)
+
 
 Features
 
