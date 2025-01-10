@@ -16,3 +16,5 @@ This was a learning exercise in [Three.js](http://threejs.org/), and there are p
  * A general solver algorithm
  * Awareness of puzzle completion, possibly with some celebratory 3D effects
  * Touch support
+
+![image](https://github.com/user-attachments/assets/74d51309-a278-4463-8d1c-9899e9c986e0)
