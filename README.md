@@ -23,3 +23,10 @@ Features
 
 ![image](https://github.com/user-attachments/assets/40e56824-0c76-41ac-96d3-327f2b43a834)
 
+to run the application locally follow this steps :
+    -To install the HTTP server globally, run the following command:
+`npm install -g http-server`
+    -start the application 
+    `http-server`
+
+
