@@ -1,0 +1,67 @@
+html, body {
+	height: 100%;
+}
+
+body { 
+	margin: 0; 
+	overflow: hidden; 
+	background-color: #87CEEB;
+	font-family: 'Alegreya Sans SC';
+	color: #a17361;
+}
+
+p#info {
+	position: absolute;
+	bottom: 0;
+	margin: 10px;
+}
+
+a {
+	color: #ff7600;
+	text-decoration: none;
+}
+
+#controls { 
+	position: absolute;
+	top: 0;
+	list-style-type: none;
+	margin: 5px;
+	padding: 0;
+	max-width: 70%;
+
+}
+
+#controls > li {
+	margin: 0 5px;
+	padding: 0;
+	float: left;
+}
+
+#controls > li:after {
+	content: '~';
+	color: #a17361;
+}
+
+#controls > li:last-child:after {
+	content: none;
+}
+
+#controls > li a, #controls > li label {
+	margin-right: 10px;
+	font-size: 1.5em;
+	color: #a17361;
+	line-height: 2em;
+}
+
+#controls > li select {
+	color: #333;
+	font-size: 1.5em;
+}
+
+#controls > li a:hover {
+	color: #ff7600;
+}
+
+#scene { 
+	height: 100%;
+}
